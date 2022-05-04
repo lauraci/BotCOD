@@ -21,22 +21,22 @@ import static discord4j.core.object.audit.OptionKey.CHANNEL_ID;
 
 public class Botesito {
     public static void main(final String[] args) {
-        final String token = "OTY2NzYyODMzMDYyODAxNDk5.YmGeDA.My3qTMwL56Y0dnAX3yp76KNDUSs";//Se crea una variable String para almacenar el token
-        final DiscordClient client = DiscordClient.create(token);//Se crea el cliente utilizado el token
-        final GatewayDiscordClient gateway = client.login().block();//Se crea una pasarela usando el cliente
+        final String token = "OTY2NzYyODMzMDYyODAxNDk5.YmGeDA.My3qTMwL56Y0dnAX3yp76KNDUSs";
+        final DiscordClient client = DiscordClient.create(token);
+        final GatewayDiscordClient gateway = client.login().block();
 
            /*
           Creamos 3 constantes:
-          -Una llamada token que es donde guarda el token del bot de Discord
-          -Una llamada cliente para el discord
-          -Una llamada gateway para podernos logear en el discord
+          - Variable String para almacenar el token.
+          - Se crea el cliente utilazando el token
+          - Se crea un getaway(pasarela) usando el cliente.
 
     /*
-      Aqui hacemos el embed donde nos da el titulo y la imagen del mismo.
+      Creamos el mensaje embed donde nos da el titulo y la imagen del mismo.
      */
 
         EmbedCreateSpec embed = EmbedCreateSpec.builder()
-                .title("Loki")
+                .title("Catinho")
                 .image("attachment://loki.jpg")
                 .build();
 
@@ -44,7 +44,7 @@ public class Botesito {
             final Message message = event.getMessage();
 
         /*
-          Aqui hacemos el !ping donde si nosotros enviamos !ping el bot nos devolverá el !Pong
+          Con el bot ejecutándose podremos enviar un mensaje: !ping. Y el nos responderá: !pong.
          */
 
             if ("!ping".equals(message.getContent())) {
@@ -69,7 +69,7 @@ public class Botesito {
                 builder.url(ANY_URL);
                 builder.description("Bienvenidos al canal, sentaos y poneos cómodos. Empieza el camino del terror");
                 builder.thumbnail(IMAGE_URL);
-                builder.footer("GIF", IMAGE_URL);
+                builder.footer("BOO", IMAGE_URL);
                 builder.timestamp(Instant.now());
                 channel.createMessage(builder.build()).block();
             }
@@ -84,14 +84,14 @@ public class Botesito {
 
                 InputStream fileAsInputStream = null;
                 try {
-                    fileAsInputStream = new FileInputStream("cat.jpg");
+                    fileAsInputStream = new FileInputStream("/Users/laura/proyectosCOD/DiscordBOT/src/main/java/Imagenes/cat.jpg");
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 }
 
                 channel.createMessage(MessageCreateSpec.builder()
-                        .content("Lindo gatito")
-                        .addFile("cat.jpg", fileAsInputStream)
+                        .content("Lindo gatihno")
+                        .addFile("/Users/laura/proyectosCOD/DiscordBOT/src/main/java/Imagenes/cat.jpg", fileAsInputStream)
                         .addEmbed(embed)
                         .build()).subscribe();
             }
